@@ -1,7 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "person.h"
+
+void Random(FILE* in){
+    char fam[][11] = {"Ivanov", "Petrov", "Sidorov", "Korneev", "Popov", "Zhukov", "Temertsev",
+                      "Okunev", "Podolopin", "Ulukaev", "Ivanenko", "Konovalov", "Turuev", "Labosniokv",
+                      "Polodko", "Potelin"};
+    char iio[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char pol[][7] = {"male", "female"};
+    char ans[][4] = {"yes", "no"};
+    for (int i = 0; i < 15; i++) {
+        fprintf(in, "%s ", fam[rand()%11]);
+        fprintf(in, "%c%c ", iio[rand()%26], iio[rand()%26]);
+        fprintf(in, "%s ", pol[rand()%2]);
+        fprintf(in, "%d ", rand()%1000);
+        fprintf(in, "%s ", ans[rand()%2]);
+        fprintf(in, "%d ", 2 + rand()%4);
+        fprintf(in, "%d ", 2 + rand()%4);
+        fprintf(in, "%d ", 2 + rand()%4);
+        fprintf(in, "%s\n", ans[rand()%2]);
+    }
+}
 
 int StudentReadTxt(Person *s, FILE *in) {
     fscanf(in, "%s", s->lastName);

@@ -11,6 +11,7 @@ typedef struct Person{
     char essay[3];
 } Person;
 
+void Random(FILE* in);
 int StudentReadTxt(Person *s, FILE *in);
 void StudentWriteBin(Person *s, FILE *out);
 void StudentPrint(Person *s);
